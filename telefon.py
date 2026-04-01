@@ -29,7 +29,19 @@ def visa_meny():
     
     
 def lägg_till(kontakter):
-    pass
+    print("\n── Lägg till kontakt ──")
+    namn = input("Namn: ").strip()
+    if not namn:
+        print("❌ Namn kan inte vara tomt.")
+        return
+    if namn.lower() in [k.lower() for k in kontakter]:
+        print(f"⚠️  '{namn}' finns redan i katalogen.")
+        return
+    telefon = input("Telefonnummer: ").strip()
+    epost = input("E-post (valfritt): ").strip()
+    kontakter[namn] = {"telefon": telefon, "epost": epost}
+    spara_kontakter(kontakter)
+    print(f"✅ '{namn}' tillagd!")
     
 def sök(kontakter): 
     pass
